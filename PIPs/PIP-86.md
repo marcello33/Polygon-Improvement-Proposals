@@ -1,5 +1,5 @@
 ---
-PIP: 88
+PIP: 86
 Title: Recalibrate CHECKPOINT_REWARD for reduced Polygon block times
 Author: Simon Dosch (@simonDos)
 Description: Scale down `CHECKPOINT_REWARD` in lockstep with the planned 1.75s and 1.5s block-time reductions to hold annual POL emission at the 1% target reaffirmed in PIP-78.
