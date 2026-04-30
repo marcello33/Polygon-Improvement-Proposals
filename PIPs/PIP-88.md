@@ -37,10 +37,10 @@ Date: 2026-04-29
   `StakeManager.updateCheckpointReward(uint256 newReward)` (`onlyGovernance`) is invoked through the `Governance` contract twice, each call timed to coincide with the corresponding block-time change on Polygon PoS:
 
   1. **At block-time transition to 1.75s (planned for 2026-05-05):**
-     - `newReward` = `29414810000000000000000` (29,414.81 POL, 18 decimals)
+     - `newReward` = `29414916286149162861491` (29,414.81 POL, 18 decimals)
 
   2. **At block-time transition to 1.5s (planned for 2026-05-19):**
-     - `newReward` = `25212920000000000000000` (25,212.92 POL, 18 decimals)
+     - `newReward` = `25212785388127853881278` (25,212.92 POL, 18 decimals)
 
   Both transactions target the L1 `StakeManager` proxy at `0x5e3Ef299fDDf15eAa0432E6e66473ace8c13D908`. Each successful execution emits `RewardUpdate(newReward, oldReward)` on the `StakingInfo` logger at
   `0xa59C847Bd5aC0172Ff4FE912C5d29E5A71A7512B`.
@@ -64,8 +64,8 @@ Date: 2026-04-29
   | Phase | Block time | Checkpoints / yr | `CHECKPOINT_REWARD` (POL) |
   |-------|-----------:|-----------------:|--------------------------:|
   | Today (PIP-78) | ~2.064s (implied) | 2,983.85 | 34,695.98 |
-  | Step 1 (2026-05-05) | **1.75s** | 3,519.64 | **29,414.81** |
-  | Step 2 (2026-05-19) | **1.5s**  | 4,106.25 | **25,212.92** |
+  | Step 1 (2026-05-05) | **1.75s** | 3,519.64 | **29,414.92** |
+  | Step 2 (2026-05-19) | **1.5s**  | 4,106.25 | **25,212.79** |
 
   Each row holds annualized emission at 103,530,000 POL (≈1% of the ~10.353B POL supply implied by PIP-78's target). The "today" row reflects the block time implied by PIP-78's calibration (target POL/yr ÷ current reward ÷ 5,120 blocks = ~2.064s/block), not a separate measurement.
 
