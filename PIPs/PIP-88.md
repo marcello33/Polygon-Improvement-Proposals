@@ -2,7 +2,7 @@
 PIP: 88
 Title: Recalibrate CHECKPOINT_REWARD for reduced Polygon block times
 Author: Simon Dosch (@simonDos)
-Description: Scale down `CHECKPOINT_REWARD` in lockstep with the planned ~2s → 1.5s → 1s block-time reductions to hold annual POL emission constant.
+Description: Scale down `CHECKPOINT_REWARD` in lockstep with the planned ~2s → 1.75s → 1.5s block-time reductions to hold annual POL emission constant.
 Discussion: TBA
 Status: Draft
 Type: Core
@@ -11,12 +11,12 @@ Date: 2026-04-29
 
   ## Abstract
 
-  Polygon PoS is reducing its average block time in two steps, from approximately 2.1s to 1.5s, and subsequently to 1.0s. Because checkpoints are submitted every `checkPointBlockInterval = 5120` blocks, a shorter
+  Polygon PoS is reducing its average block time in two steps, from approximately 2s to 1.75s, and subsequently to 1.5s. Because checkpoints are submitted every `checkPointBlockInterval = 5120` blocks, a shorter
   block time directly increases the number of checkpoints submitted per year. The per-checkpoint emission parameter `CHECKPOINT_REWARD`, set on the L1 `StakeManager` (`0x5e3Ef299fDDf15eAa0432E6e66473ace8c13D908`)
   and updated through `updateCheckpointReward(uint256)`, must therefore be reduced proportionally.  
   This PIP proposes two new values, each to be applied at the moment its corresponding
   block-time change goes live:  
-  **24,782.84 POL** when block time becomes 1.5s, and **16,521.89 POL** when block time becomes 1.0s.
+  **28,913.32 POL** when block time becomes 1.75s, and **24,782.84 POL** when block time becomes 1.5s.
 
   ## Motivation
 
@@ -27,8 +27,8 @@ Date: 2026-04-29
   checkpoints_per_year = seconds_per_year / (block_time × checkPointBlockInterval)
   ```
 
-  If block time is reduced without adjusting `CHECKPOINT_REWARD`, the validator reward budget increases mechanically. At a 1.0s block time, leaving the
-  parameter unchanged would increase emission by roughly 2× over the current target.
+  If block time is reduced without adjusting `CHECKPOINT_REWARD`, the validator reward budget increases mechanically. At a 1.5s block time, leaving the
+  parameter unchanged would increase emission by roughly 1.4× over the current target.
 
   The intent of this PIP is therefore narrow and mechanical: hold annualized emission constant in POL terms while the block-time change ships.
 
@@ -36,11 +36,11 @@ Date: 2026-04-29
 
   `StakeManager.updateCheckpointReward(uint256 newReward)` (`onlyGovernance`) is invoked through the `Governance` contract twice, each call timed to coincide with the corresponding block-time change on Polygon PoS:
 
-  1. **At block-time transition to 1.5s:**
-     - `newReward` = `24782840000000000000000` (24,782.84 POL, 18 decimals)
+  1. **At block-time transition to 1.75s (planned for 2026-05-05):**
+     - `newReward` = `28913320000000000000000` (28,913.32 POL, 18 decimals)
 
-  2. **At block-time transition to 1.0s:**
-     - `newReward` = `16521890000000000000000` (16,521.89 POL, 18 decimals)
+  2. **At block-time transition to 1.5s (planned for 2026-05-19):**
+     - `newReward` = `24782840000000000000000` (24,782.84 POL, 18 decimals)
 
   Both transactions target the L1 `StakeManager` proxy at `0x5e3Ef299fDDf15eAa0432E6e66473ace8c13D908`. Each successful execution emits `RewardUpdate(newReward, oldReward)` on the `StakingInfo` logger at
   `0xa59C847Bd5aC0172Ff4FE912C5d29E5A71A7512B`.
@@ -69,8 +69,8 @@ Date: 2026-04-29
   | Phase | Block time | Checkpoints / yr | `CHECKPOINT_REWARD` (POL) 
   |-------|-----------:|-----------------:|--------------------------:
   | Today | 2.1s       | 2,933.04         | 34,695.98                 
-  | Step 1 | **1.5s**  | 4,106.25         | **24,782.84**             
-  | Step 2 | **1.0s**  | 6,159.375        | **16,521.89**             
+  | Step 1 (2026-05-05) | **1.75s** | 3,519.64 | **28,913.32**       
+  | Step 2 (2026-05-19) | **1.5s**  | 4,106.25 | **24,782.84**       
 
 
   ## Backwards Compatibility
