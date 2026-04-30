@@ -16,7 +16,7 @@ Date: 2026-04-29
   and updated through `updateCheckpointReward(uint256)`, must therefore be reduced proportionally.  
   This PIP proposes two new values, each to be applied at the moment its corresponding
   block-time change goes live:  
-  **29,414.81 POL** when block time becomes 1.75s, and **25,212.92 POL** when block time becomes 1.5s.
+  **29,414.92 POL** when block time becomes 1.75s, and **25,212.79 POL** when block time becomes 1.5s.
 
   ## Motivation
 
@@ -37,10 +37,10 @@ Date: 2026-04-29
   `StakeManager.updateCheckpointReward(uint256 newReward)` (`onlyGovernance`) is invoked through the `Governance` contract twice, each call timed to coincide with the corresponding block-time change on Polygon PoS:
 
   1. **At block-time transition to 1.75s (planned for 2026-05-05):**
-     - `newReward` = `29414916286149162861491` (29,414.81 POL, 18 decimals)
+     - `newReward` = `29414916286149162861491` (29,414.92 POL, 18 decimals)
 
   2. **At block-time transition to 1.5s (planned for 2026-05-19):**
-     - `newReward` = `25212785388127853881278` (25,212.92 POL, 18 decimals)
+     - `newReward` = `25212785388127853881278` (25,212.79 POL, 18 decimals)
 
   Both transactions target the L1 `StakeManager` proxy at `0x5e3Ef299fDDf15eAa0432E6e66473ace8c13D908`. Each successful execution emits `RewardUpdate(newReward, oldReward)` on the `StakingInfo` logger at
   `0xa59C847Bd5aC0172Ff4FE912C5d29E5A71A7512B`.
