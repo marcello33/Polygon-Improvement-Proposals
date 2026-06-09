@@ -3,10 +3,10 @@ PIP: 84
 Title: Giugliano Hardfork
 Author: Lucca Martins (@lucca30)
 Description: Proposes Giugliano Hardfork
-Discussion: https://forum.polygon.technology/t/pip-83-giugliano-hardfork
-Status: Draft
+Discussion: 'https://forum.polygon.technology/t/pip-83-giugliano-hardfork'
+Status: Final
 Type: Core
-Date: 2026-03-10
+Date: 2026-03-10T00:00:00.000Z
 ---
 
 ## Abstract
