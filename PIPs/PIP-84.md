@@ -5,6 +5,8 @@ Author: Lucca Martins (@lucca30)
 Description: Proposes Giugliano Hardfork
 Discussion: 'https://forum.polygon.technology/t/pip-83-giugliano-hardfork'
 Status: Final
+Discussion: https://forum.polygon.technology/t/pip-84-giugliano-hardfork
+Status: Draft
 Type: Core
 Date: 2026-03-10T00:00:00.000Z
 ---
