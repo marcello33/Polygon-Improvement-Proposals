@@ -4,7 +4,7 @@ Title: Staked Tokenholder Signalling
 Description: Tokenholder signalling for system smart contracts governance
 Author: Carlos Gonzalez Juarez, Tanisha Katara, Mateusz Rzeszowski
 Discussion: https://forum.polygon.technology/t/pip-50-staked-tokenholder-signalling/19974
-Status: Draft
+Status: Continuous
 Type:  Informational
 Date: 2024-11-8
 ---
@@ -71,4 +71,4 @@ Iteration is one of the key characteristics of this project, taking into account
 
 ## Copyright
 
-All copyrights and related rights in this work are waived under CC0 1.0 Universal.
+All copyrights and related rights in this work are waived under [CCO 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/legalcode).

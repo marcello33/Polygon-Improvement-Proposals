@@ -4,7 +4,7 @@ Title: Path-Based Storage Scheme
 Description: Proposes a path-based storage scheme for the Polygon PoS chain
 Author: Jerry Chen (@cffls)
 Discussion: https://forum.polygon.technology/t/pip-48-path-based-storage-scheme/19917
-Status: Draft
+Status: Final
 Type: Core
 Date: 2024-10-17
 ---
@@ -71,4 +71,4 @@ Fundamentally, the path-based model is simply a better implementation of persist
 
 ## Copyright
 
-All copyrights and related rights in this work are waived under CC0 1.0 Universal.
+All copyrights and related rights in this work are waived under [CC0 1.0 Universal.](https://github.com/0xPolygon/Polygon-Improvement-Proposals/blob/pip-updates/PIPs/PIP-49.md)
